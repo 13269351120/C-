@@ -39,7 +39,7 @@ else {
 
 
 34. Find First and Last Position of Element in Sorted Array  
-缘起：之前看到过面试有考，也刚刚复习到二分
+缘起：之前看到过面试有考，也刚刚复习到二分  
 知识点：lower_bound和upper_bound的写法，都是与right那个有关，所以正好印证了上个结论。
 
 
