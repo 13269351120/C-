@@ -43,3 +43,34 @@ else {
 知识点：lower_bound和upper_bound的写法，都是与right那个有关，所以正好印证了上个结论。
 
 
+#### 2019.06.30 星期日 
+239. Sliding Window Maximum    
+缘起：最近在学习彻底掌握单调栈单调队列类似的算法  
+知识点：学习使用单调队列  
+单调队列思想：  
+* 队首保持着想要的答案 
+* 队列中尽量消除无用的元素  
+单调队列的实现： 
+使用的基本数据结构：deque  
+方法一<记录下标验证过期>：  
+队首确实一直保持着想要的答案，但是在这个sliding window的时候可能最大值会滑出窗口，所以可以通过记录下标来验证是否过期。  
+
+方法二<通过对比对首元素和num[i-k]>：
+正如前一种方法所言，需要额外记录下标，这种方法就是更直接的去比较最大值是否就是刚刚过期的那个值。  
+```cpp
+class MonotonicQueue
+    {
+        public:
+            void pop() {Q.pop_front();}
+            void push(int val) {
+                while (!Q.empty() && val > Q.back()) Q.pop_back();
+                Q.push_back(val);
+            }
+            int getMax()
+            {
+                return Q.front();
+            }
+        private:
+            deque<int> Q ;
+    };
+```
