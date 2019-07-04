@@ -44,7 +44,7 @@ else {
 
 
 #### 2019.06.30 星期日 
-239. Sliding Window Maximum    
+239. Sliding Window Maximum 求一个window内最大值    
 缘起：最近在学习彻底掌握单调栈单调队列类似的算法  
 知识点：学习使用单调队列  
 单调队列思想：  
@@ -60,20 +60,20 @@ else {
 正如前一种方法所言，需要额外记录下标，这种方法就是更直接的去比较最大值是否就是刚刚过期的那个值。  
 ```cpp
 class MonotonicQueue
-    {
-        public:
-            void pop() {Q.pop_front();}
-            void push(int val) {
-                while (!Q.empty() && val > Q.back()) Q.pop_back();
-                Q.push_back(val);
-            }
-            int getMax()
-            {
-                return Q.front();
-            }
-        private:
-            deque<int> Q ;
-    };
+{
+    public:
+        void pop() {Q.pop_front();}
+        void push(int val) {
+            while (!Q.empty() && val > Q.back()) Q.pop_back();
+            Q.push_back(val);
+        }
+        int getMax()
+        {
+            return Q.front();
+        }
+    private:
+        deque<int> Q ;
+};
 ```
 153. Find Minimum in Rotated Sorted Array  
 缘起：听课  
@@ -95,3 +95,7 @@ while (l < r) {
 ```
 这边视频中的方法还需要l = 1开始，因为他比较的是nums[mid]和nums[mid-1]，从0开始可能会出现下标为-1的情况。而经过我的考虑因为 l+r / 2是取下整，所以nums[mid+1]必然不会越界，所以很统一的写法。  
 
+84. Largest Rectangle in Histogram  
+缘起：周会自学  
+知识点：单调栈  
+单调栈是一个比较好理解但是运用起来比较灵活难想的一类题。栈里保存的是一组单调递增的数，一旦遇到比栈顶元素小，要进行循环处理比它大的栈里的数，栈一直保持着有用的数。  
