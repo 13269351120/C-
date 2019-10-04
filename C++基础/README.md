@@ -54,7 +54,7 @@ void *aligned_malloc(int size, int alignment) {
 }
 
 void aligned_free(void* aligned) {
-    void* origin = (void**)aligned[-1];
+    void* origin = ((void**)aligned)[-1];
     free(origin);
 }
 ```
